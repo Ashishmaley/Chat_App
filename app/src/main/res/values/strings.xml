@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Chat app</string>
+    <string name="enter_your_number">Enter your Number</string>
+    <string name="get_otp">Get Otp</string>
+    <string name="enter">Enter</string>
+    <string name="otp_verification">OTP Verification</string>
+    <string name="user_name">User Name</string>
+    <string name="number">number</string>
+</resources>
