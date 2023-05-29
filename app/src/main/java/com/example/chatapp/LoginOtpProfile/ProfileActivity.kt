@@ -14,6 +14,7 @@ import com.example.chatapp.Data.User
 import com.example.chatapp.databinding.ActivityProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.snapshots
 import com.google.firebase.storage.FirebaseStorage
 
 @Suppress("DEPRECATION")
@@ -111,4 +112,14 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
     }
+
+//    override fun onStart() {
+//        super.onStart()
+//        database = FirebaseDatabase.getInstance()
+//        var uid =database!!.reference.child("users").child()
+//        if ( uid != null) {
+//
+//        }
+//    }
+
     }

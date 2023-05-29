@@ -6,4 +6,7 @@
     <string name="otp_verification">OTP Verification</string>
     <string name="user_name">User Name</string>
     <string name="number">number</string>
+    <string name="profile_information">Profile Information</string>
+    <string name="set_profile">Set profile</string>
+    <string name="_91">+91</string>
 </resources>

@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".LoginOtpProfile.ProfileActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
         android:layout_width="96dp"
-
         android:layout_height="96dp"
+        app:civ_circle_background_color="@color/black"
+        app:civ_border_overlay="true"
         android:src="@drawable/img"
         app:civ_border_color="#07000000"
         app:civ_border_width="2dp"
@@ -23,17 +25,18 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:textSize="30dp"
-        android:textAlignment="center"
-
         android:layout_height="wrap_content"
+        android:fontFamily="@font/advent_pro"
+        android:text="@string/profile_information"
+        android:textAlignment="center"
+        android:textColor="@color/teal_700"
+        android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="#0B0B0B"
-        android:text="Profile Information"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_image"
-        app:layout_constraintVertical_bias="0.058"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.058" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -60,12 +63,14 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#41000000"
+                android:background="@drawable/otp_box"
                 android:minHeight="48dp"
-                android:padding="5dp"
+                android:lines="1"
+                android:padding="10dp"
                 android:id="@+id/name"
-                android:hint=" User Name"
-                android:textColor="@color/black"
+                android:textColorHint="#373636"
+                android:hint="@string/user_name"
+                android:textColor="#373636"
                 android:textStyle="bold" />
 
             <Button
@@ -75,7 +80,7 @@
                 android:layout_margin="10dp"
                 android:backgroundTint="#EB2EA316"
                 android:layout_gravity="center"
-                android:text="Set profile" />
+                android:text="@string/set_profile" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
