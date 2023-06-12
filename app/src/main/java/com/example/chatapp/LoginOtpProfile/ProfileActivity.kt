@@ -34,6 +34,7 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
+        supportActionBar?.hide()
 
         val dialog = ProgressDialog(this)
         dialog.setMessage("Loading...")
@@ -66,7 +67,7 @@ class ProfileActivity : AppCompatActivity() {
                     reference.putFile(selectedImage!!).addOnCompleteListener{Task ->
                         if(Task.isSuccessful)
                         {
-                            reference.downloadUrl.addOnCompleteListener { uri->
+                            reference.downloadUrl.addOnSuccessListener { uri->
                                 val imageUri = uri.toString()
                                 val uid = auth!!.uid
                                 val userName = binding!!.name.text.toString()
@@ -81,7 +82,6 @@ class ProfileActivity : AppCompatActivity() {
                                             startActivity(Intent(this, MainActivity::class.java))
                                             finish()
                                         }
-
                             }
                         }
                     }
@@ -115,10 +115,9 @@ class ProfileActivity : AppCompatActivity() {
 
 //    override fun onStart() {
 //        super.onStart()
-//        database = FirebaseDatabase.getInstance()
-//        var uid =database!!.reference.child("users").child()
-//        if ( uid != null) {
-//
+//        if (profileImage!=null) {
+//            startActivity(Intent(this,MainActivity::class.java))
+//            finish()
 //        }
 //    }
 

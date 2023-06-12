@@ -1,11 +1,16 @@
 package com.example.chatapp
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import androidx.constraintlayout.helper.widget.Carousel.Adapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatapp.Data.User
+import com.example.chatapp.LoginOtpProfile.ProfileActivity
 import com.example.chatapp.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -51,7 +56,10 @@ class MainActivity : AppCompatActivity() {
                 for (snap in snapshot.children)
                 {
                     val user:User?=snap.getValue(User ::class.java)
-                    if (user!!.uid!! != FirebaseAuth.getInstance().uid) userList!!.add(user)
+//                    if (user!!.uid!! != FirebaseAuth.getInstance().uid)
+                    if (user != null) {
+                        userList!!.add(user)
+                    }
                 }
                 userAdapter!!.notifyDataSetChanged()
             }
@@ -62,4 +70,24 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.profileUpdate -> {
+                profileUpdate(item)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun profileUpdate(item: MenuItem) {
+        val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.chatapp
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.bumptech.glide.Glide
 import com.example.chatapp.Data.User
 import com.example.chatapp.databinding.ItemBinding
+import com.squareup.picasso.Picasso
 
 class UserAdapter(val context: Context,val userArray: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.ViewHolder>(){
 
@@ -21,7 +23,7 @@ class UserAdapter(val context: Context,val userArray: ArrayList<User>) : Recycle
         val user = userArray[position]
         holder.binding.name.text = user.name
         holder.binding.number.text = user.phoneNumber
-        Glide.with(context).load(user.profileImage).placeholder(R.drawable.img).into(holder.binding.userImage)
+        Picasso.get().load(user.profileImage).into(holder.binding.userImage)
     }
 
     override fun getItemCount(): Int = userArray.size

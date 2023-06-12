@@ -28,6 +28,7 @@ class OtpVerification : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOtpVerificationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
         val verificationId = intent.getStringExtra("otpCode")
         phoneNumber = intent.getStringExtra("number")
         val register = binding.button

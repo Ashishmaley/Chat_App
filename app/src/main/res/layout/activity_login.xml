@@ -48,7 +48,7 @@
             android:background="#01C5B9B9"
             android:text="@string/_91"
             android:hint="@string/enter_your_number"
-            android:lines="1"
+            android:maxLines="1"
             android:textColor="#252424" />
 
 

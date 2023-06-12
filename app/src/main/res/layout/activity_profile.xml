@@ -64,9 +64,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/otp_box"
-                android:minHeight="48dp"
-                android:lines="1"
                 android:padding="10dp"
+
                 android:id="@+id/name"
                 android:textColorHint="#373636"
                 android:hint="@string/user_name"
