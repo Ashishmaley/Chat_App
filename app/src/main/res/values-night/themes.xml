@@ -21,7 +21,7 @@
     <style name="MyActionBarTitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@color/black</item>
     </style>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Other theme attributes -->
         <item name="colorPrimary">#08AAAAAA</item>
         <item name="colorPrimaryVariant">#07F5F5</item>

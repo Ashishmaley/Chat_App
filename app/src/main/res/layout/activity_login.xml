@@ -6,7 +6,6 @@
     android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".LoginOtpProfile.LoginActivity">
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -46,6 +45,7 @@
             android:layout_gravity="center"
             android:drawableStart="@drawable/baseline_local_phone_24"
             android:background="#01C5B9B9"
+            android:singleLine="true"
             android:text="@string/_91"
             android:hint="@string/enter_your_number"
             android:maxLines="1"

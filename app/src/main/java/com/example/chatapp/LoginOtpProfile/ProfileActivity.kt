@@ -113,12 +113,12 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//        if (profileImage!=null) {
-//            startActivity(Intent(this,MainActivity::class.java))
-//            finish()
-//        }
-//    }
+    override fun onStart() {
+        super.onStart()
+        if (profileImage!=null) {
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
+    }
 
     }
