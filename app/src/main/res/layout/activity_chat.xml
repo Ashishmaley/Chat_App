@@ -1,84 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ChatActivity">
+    android:layout_height="match_parent">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageProfile"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="106dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="106dp"
-        android:layout_marginBottom="455dp"
-        android:foregroundGravity="center"
-        android:src="@drawable/img"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.092" />
-
-    <TextView
-        android:id="@+id/userName"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="0dp"
-        android:text="name"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:id="@+id/chatRecycleView"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userName" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:cardBackgroundColor="#DEAEAE"
-        app:cardCornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/chatRecycleView"
-        app:layout_constraintEnd_toStartOf="@+id/sendButton"
-        app:layout_constraintLeft_toRightOf=""
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageProfile"
+            android:layout_width="104dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="169dp"
+            android:layout_marginEnd="172dp"
+            android:src="@drawable/img"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.092" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:text="@string/name"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatRecycleView"
+            android:padding="5dp"
             android:layout_width="match_parent"
-            app:boxBackgroundColor="#BCAFECEF"
-            app:boxStrokeColor="@color/black"
-            android:layout_height="wrap_content">
+            android:layout_height="475dp"
+            android:layout_gravity="center"
+            tools:listitem="@layout/sendmessage"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:weightSum="10">
 
-            <com.google.android.material.textfield.TextInputEditText
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:elevation="10dp"
+            android:layout_marginStart="10dp"
+            app:cardBackgroundColor="#BCE8EEEE"
+            app:cardCornerRadius="40dp">
+
+            <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Type a message...." />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="match_parent"
+                android:id="@+id/inputMessage"
+                android:padding="20dp"
+                android:soundEffectsEnabled="true"
+                android:paddingBottom="60dp"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-condensed"
+                style="@style/NoUnderlineEditText"
+                android:hint="@string/type_a_message"
+                />
+        </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:id="@+id/attachButton"
+            android:layout_height="match_parent"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/baseline_attach_file_24" />
 
-    <ImageButton
-        android:id="@+id/sendButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="25dp"
-        android:backgroundTint="#018BFEF5"
-        android:src="@drawable/outline_send_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/sendButton"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"
+            android:backgroundTint="#018BFEF5"
+            android:src="@drawable/outline_send_24"
+            />
+    </LinearLayout>
+</RelativeLayout>

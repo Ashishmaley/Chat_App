@@ -6,9 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import androidx.constraintlayout.helper.widget.Carousel.Adapter
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.chatapp.Adapters.UserAdapter
 import com.example.chatapp.Data.User
 import com.example.chatapp.LoginOtpProfile.ProfileActivity
 import com.example.chatapp.databinding.ActivityMainBinding
@@ -39,15 +38,15 @@ class MainActivity : AppCompatActivity() {
         val recyclerView=binding!!.recycleView
         recyclerView.layoutManager = LinearLayoutManager(this)
         userAdapter  = UserAdapter(this, userList!!)
-//        database!!.reference.child("users")
-//            .child(FirebaseAuth.getInstance().uid!!).addValueEventListener(object : ValueEventListener{
-//                override fun onDataChange(snapshot: DataSnapshot) {
-//                    user=snapshot.getValue(User :: class.java)
-//                }
-//
-//                override fun onCancelled(error: DatabaseError) {}
-//
-//            })
+        database!!.reference.child("users")
+            .child(FirebaseAuth.getInstance().uid!!).addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    user=snapshot.getValue(User :: class.java)
+                }
+
+                override fun onCancelled(error: DatabaseError) {}
+
+            })
         binding!!.recycleView.adapter=userAdapter
         database!!.reference.child("users").addValueEventListener(object : ValueEventListener{
             @SuppressLint("NotifyDataSetChanged")
@@ -56,10 +55,8 @@ class MainActivity : AppCompatActivity() {
                 for (snap in snapshot.children)
                 {
                     val user:User?=snap.getValue(User ::class.java)
-//                    if (user!!.uid!! != FirebaseAuth.getInstance().uid)
-                    if (user != null) {
+                    if (user!!.uid!! != FirebaseAuth.getInstance().uid)
                         userList!!.add(user)
-                    }
                 }
                 userAdapter!!.notifyDataSetChanged()
             }

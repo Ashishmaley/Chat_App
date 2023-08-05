@@ -24,6 +24,7 @@ class ProfileActivity : AppCompatActivity() {
     var binding : ActivityProfileBinding? = null
     var auth : FirebaseAuth? = null
     var database: FirebaseDatabase?=null
+    var uid : String? = null
     var storage:FirebaseStorage?=null
     var selectedImage : Uri? = null
     private var profileImage :ImageView? = null
@@ -69,7 +70,7 @@ class ProfileActivity : AppCompatActivity() {
                         {
                             reference.downloadUrl.addOnSuccessListener { uri->
                                 val imageUri = uri.toString()
-                                val uid = auth!!.uid
+                                uid = auth!!.uid
                                 val userName = binding!!.name.text.toString()
                                 val number = auth!!.currentUser!!.phoneNumber
                                 val user = User(uid, userName, imageUri, number)
@@ -115,7 +116,7 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if (profileImage!=null) {
+        if (profileImage !=null) {
             startActivity(Intent(this,MainActivity::class.java))
             finish()
         }

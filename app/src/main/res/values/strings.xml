@@ -10,4 +10,10 @@
     <string name="set_profile">Set profile</string>
     <string name="_91">+91</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="type_a_message">Type a message....</string>
+    <string name="name">name</string>
+    <string name="sender_side_message">sender side message</string>
+    <string name="delete_for_everyone">delete for everyone</string>
+    <string name="delete_for_me">delete for me</string>
+    <string name="cancel">cancel</string>
 </resources>
