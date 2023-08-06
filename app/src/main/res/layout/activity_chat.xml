@@ -5,91 +5,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <Toolbar
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
-        android:orientation="vertical">
+        android:layout_marginTop="0dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageProfile"
             android:layout_width="104dp"
             android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="169dp"
-            android:layout_marginEnd="172dp"
-            android:src="@drawable/img"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.092" />
+            android:layout_marginStart="10dp"
+            android:src="@drawable/img" />
 
         <TextView
             android:id="@+id/userName"
-            android:layout_width="70dp"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="20dp"
             android:text="@string/name"
-            android:textAlignment="center"
             android:textSize="20sp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/chatRecycleView"
-            android:padding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="475dp"
-            android:layout_gravity="center"
-            tools:listitem="@layout/sendmessage"/>
-    </LinearLayout>
+    </Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="510dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:padding="5dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="87dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:weightSum="10">
+        android:layout_marginTop="572dp"
+        android:weightSum="11">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:elevation="10dp"
             android:layout_marginStart="10dp"
+            android:layout_weight="10.5"
+            android:elevation="1dp"
             app:cardBackgroundColor="#BCE8EEEE"
             app:cardCornerRadius="40dp">
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:id="@+id/inputMessage"
+                style="@style/NoUnderlineEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="@string/type_a_message"
                 android:padding="20dp"
                 android:soundEffectsEnabled="true"
-                android:paddingBottom="60dp"
-                android:textSize="15sp"
-                android:fontFamily="sans-serif-condensed"
-                style="@style/NoUnderlineEditText"
-                android:hint="@string/type_a_message"
-                />
+                android:textSize="15sp" />
         </androidx.cardview.widget.CardView>
 
         <ImageButton
-            android:layout_width="wrap_content"
             android:id="@+id/attachButton"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="0"
             android:backgroundTint="#00000000"
             android:src="@drawable/baseline_attach_file_24" />
 
         <ImageButton
             android:id="@+id/sendButton"
-            android:layout_width="40dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="0.1"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="0"
             android:backgroundTint="#018BFEF5"
-            android:src="@drawable/outline_send_24"
-            />
+            android:src="@drawable/outline_send_24" />
+
     </LinearLayout>
-</RelativeLayout>
+        </RelativeLayout>

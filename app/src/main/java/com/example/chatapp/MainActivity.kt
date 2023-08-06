@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         userAdapter  = UserAdapter(this, userList!!)
         database!!.reference.child("users")
-            .child(FirebaseAuth.getInstance().uid!!).addValueEventListener(object : ValueEventListener{
+            .child(FirebaseAuth.getInstance().uid!!)
+            .addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     user=snapshot.getValue(User :: class.java)
                 }
@@ -61,7 +62,6 @@ class MainActivity : AppCompatActivity() {
                 userAdapter!!.notifyDataSetChanged()
             }
             override fun onCancelled(error: DatabaseError) {}
-
         })
 
 
